@@ -1,0 +1,14 @@
+[Unit]
+Description=Run My Python Script at Startup
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/raspberrypi/IOT/server_chair.py  #실행파일
+WorkingDirectory=/home/raspberrypi/IOT  #실행파일 경로
+StandardOutput=file:/home/raspberrypi/IOT/chair_module.log   #파일 정상 실행 시 로그
+StandardError=file:/home/raspberrypi/IOT/chair_module_error.log  #파일 에러 시 로그
+Restart=always
+User=raspberrypi  #유저 이름
+
+[Install]
+WantedBy=multi-user.target
